@@ -1,1 +1,1 @@
-# odin_restaurant-page
+[# odin_restaurant-page](https://www.theodinproject.com/lessons/node-path-javascript-restaurant-page)
