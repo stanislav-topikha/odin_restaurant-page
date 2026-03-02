@@ -1,4 +1,138 @@
+:root {
+  --accent-yellow: rgb(248	213	93);
+  --accent-red: rgb(179	61	57);
+  --bg-color: rgb(253	244	232);
+}
+
+html {
+  font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+}
+
 body {
-  padding: 0;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  margin: 0;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 30px;
+
+  background-color: var(--accent-red);
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--bg-color);
+}
+
+nav {
+  display: flex;
+  gap: 40px;
+}
+
+nav button {
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: 600;
+  color: var(--bg-color);
+  background-color: transparent;
+  border: none;
+}
+
+nav button:hover {
+  color: var(--accent-yellow);
+}
+
+#content {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.hero {
+  width: 500px;
+  aspect-ratio: 1/1;
+  animation: floating 3s infinite ease-in-out;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px); /* Starting position (no vertical translation) */
+  }
+  65% {
+    transform: translate(0, 15px); /* Moves the element down by 15px */
+  }
+  to {
+    transform: translate(0, 0px); /* Returns to the original position */
+  }
+}
+
+.animated-text-two,
+.animated-text-one {
+  position: absolute;
+  z-index: -1;
+  font-size: 100px;
+  font-weight: bold;
+  text-wrap-mode: nowrap;
+  text-transform: uppercase;
+}
+
+.animated-text-one {
+  top: 15%;
+  color: var(--accent-red);
+  animation: scroll-left 100s linear infinite alternate;
+}
+
+@keyframes scroll-left {
+  from {
+      transform: translateX(0%);
+  }
+  to {
+      transform: translateX(-75%);
+  }
+}
+
+.animated-text-two {
+  bottom: 15%;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--accent-red);
+  animation: scroll-right 100s linear infinite alternate;
+}
+
+@keyframes scroll-right {
+  from {
+      transform: translateX(0%);
+  }
+  to {
+      transform: translateX(75%);
+  }
+}
+
+#menu-action {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 20px 40px;
+  border-radius: 30px;
+  color: var(--accent-red);
+  background-color: var(--accent-yellow);
+  border: none;
+}
+
+#menu-action:hover {
+  color: var(--accent-yellow);
+  background-color: var(--accent-red);
 }
