@@ -3,7 +3,7 @@ import heroSrc from './assets/hero.avif';
 export const getHomeContent = () => {
   const heroImg = document.createElement('img');
   heroImg.src = heroSrc;
-  heroImg.setAttribute('alt', 'Beef Rump Steak Grilled Medium Rare with Pepper and Rosemary');
+  heroImg.setAttribute('alt', 'Burger');
   heroImg.classList.add('hero');
 
   const animatedTextOne = document.createElement('p');

@@ -4,7 +4,7 @@ import './styles.css';
 const loadPage = () => {
   const content = document.querySelector('#content');
 
-  content.append(...getHomeContent());
+  //content.append(...getHomeContent());
 };
 
 loadPage();
