@@ -56,6 +56,10 @@ nav button:hover {
   color: var(--accent-yellow);
 }
 
+nav button.active {
+  color: var(--accent-yellow);
+}
+
 #content {
   position: relative;
   flex-grow: 1;
@@ -63,6 +67,7 @@ nav button:hover {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  padding: 40px;
 }
 
 .hero {
@@ -142,8 +147,14 @@ nav button:hover {
   background-color: var(--accent-red);
 }
 
+.cards {
+  width: 100%;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+
 .card {
-  max-width: 40%;
   position: relative;
   display: flex;
   flex-direction: column;

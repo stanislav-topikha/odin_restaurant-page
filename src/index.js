@@ -1,11 +1,56 @@
+import { getAboutContent } from './about';
 import { getHomeContent } from './home';
-import { createMenu } from './menu';
+import { getMenuContent } from './menu';
 import './styles.css';
 
-const loadPage = () => {
-  const content = document.querySelector('#content');
+const content = document.querySelector('#content');
+const render = (...nodes) => {
+  content.replaceChildren(...nodes);
+};
 
-  content.append(createMenu());
+const loadPage = () => {
+
+  const homeBtn = document.querySelector('#home');
+  const menuBtn = document.querySelector('#menu');
+  const aboutBtn = document.querySelector('#about');
+
+  render(...getHomeContent());
+  homeBtn.classList.add('active');
+
+  homeBtn.addEventListener('click', () => {
+    if (homeBtn.classList.contains('active')) {
+      return;
+    }
+
+    render(...getHomeContent());
+    homeBtn.classList.add('active');
+    menuBtn.classList.remove('active');
+    aboutBtn.classList.remove('active');
+  });
+
+  menuBtn.addEventListener('click', () => {
+    if (menuBtn.classList.contains('active')) {
+      return;
+    }
+
+    render(...getMenuContent());
+
+    menuBtn.classList.add('active');
+    homeBtn.classList.remove('active');
+    aboutBtn.classList.remove('active');
+  });
+
+  aboutBtn.addEventListener('click', () => {
+    if (aboutBtn.classList.contains('active')) {
+      return;
+    }
+
+    render(...getAboutContent());
+
+    aboutBtn.classList.add('active');
+    menuBtn.classList.remove('active');
+    homeBtn.classList.remove('active');
+  });
 };
 
 loadPage();
