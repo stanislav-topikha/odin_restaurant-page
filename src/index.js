@@ -4,17 +4,19 @@ import { getMenuContent } from './menu';
 import './styles.css';
 
 const content = document.querySelector('#content');
-const render = (...nodes) => {
+const render = (section, ...nodes) => {
   content.replaceChildren(...nodes);
+  content.className = section;
 };
 
 const loadPage = () => {
-
+  document.querySelector('footer>div').textContent += ` ${(new Date()).getFullYear()}`;
   const homeBtn = document.querySelector('#home');
   const menuBtn = document.querySelector('#menu');
   const aboutBtn = document.querySelector('#about');
 
-  render(...getHomeContent());
+  render('home', ...getHomeContent());
+
   homeBtn.classList.add('active');
 
   homeBtn.addEventListener('click', () => {
@@ -22,7 +24,7 @@ const loadPage = () => {
       return;
     }
 
-    render(...getHomeContent());
+    render('home', ...getHomeContent());
     homeBtn.classList.add('active');
     menuBtn.classList.remove('active');
     aboutBtn.classList.remove('active');
@@ -33,7 +35,7 @@ const loadPage = () => {
       return;
     }
 
-    render(...getMenuContent());
+    render('menu', ...getMenuContent());
 
     menuBtn.classList.add('active');
     homeBtn.classList.remove('active');
@@ -45,7 +47,7 @@ const loadPage = () => {
       return;
     }
 
-    render(...getAboutContent());
+    render('about', ...getAboutContent());
 
     aboutBtn.classList.add('active');
     menuBtn.classList.remove('active');

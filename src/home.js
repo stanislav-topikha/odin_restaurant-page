@@ -18,5 +18,9 @@ export const getHomeContent = () => {
   button.innerText = 'Explore menu';
   button.classList.add("button-big");
 
+  button.addEventListener('click', () => {
+     const menuBtn = document.querySelector('#menu').click();
+  });
+
   return [heroImg, animatedTextOne, animatedTextTwo, button];
 };
